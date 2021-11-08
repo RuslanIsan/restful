@@ -32,4 +32,8 @@ class CountryServiceImpl(
             countryDao.save(newCountry)
         }
     }
+
+    override fun deleteById(id: Int) {
+        countryDao.deleteById(id)
+    }
 }
