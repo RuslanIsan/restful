@@ -9,6 +9,6 @@ import javax.persistence.Id
 data class Country(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    val id: Int = 0,
     val name: String
 )

@@ -1,9 +1,7 @@
 package ru.ruslanredo.restful.controller
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+import ru.ruslanredo.restful.dto.CountryDto
 import ru.ruslanredo.restful.model.Country
 import ru.ruslanredo.restful.service.CountryService
 
@@ -18,4 +16,14 @@ class CountryController(
 
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Int): Country = countryService.getById(id)
+
+    @PostMapping
+    fun create(@RequestBody dto: CountryDto) {
+        countryService.create(dto)
+    }
+
+    @PutMapping("/{id}")
+    fun update(@PathVariable id: Int, @RequestBody dto: CountryDto){
+        countryService.update(id, dto)
+    }
 }
